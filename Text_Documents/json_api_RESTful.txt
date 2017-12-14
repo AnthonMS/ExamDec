@@ -1,0 +1,5 @@
+Jeg ville sige at dette i forvejen er et RESTful API, det vil jeg konkludere
+ud fra at man tilgår denne API ved hjælp af en simpel URL.
+Hvis jeg hoster denne php fil med tilhørende database, kan jeg gå til
+"http://localhost/explore_california_api.php" og så vil den returnere et array i JSON format.
+Hvis man brugte SOAP ville man tilgå API'et ved hjælp af XML.

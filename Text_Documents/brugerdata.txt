@@ -1,0 +1,24 @@
+I tilfælde af et  SQL angreb, og de successfuldt kommer igennem,
+så er der et par måder at sikrer sine brugeres data.
+
+Man kan starte med at cryptere den følsomme data.
+Hvis man nu har et table, fyldt med brugernavne og adgangskoder, så ville det ikke være så godt at gemme dette i plaintekst.
+Det er det ikke fordi hvis man får adgang til dette table, så vil man nu have alle brugernavne og adgangskoder på systemet.
+Så man kunne hash brugernavne og adgangskoder. Det gør man ved at bruge en af de standard krypteringsmåder, som SHA256.
+I det man gør det, så vil en adgangskode som denne, "EasyPass" i stedet stå som "7ddf35efd4aa05281f1b68f93d5fcb724d6b286b9a7826dd8c59308526a6533c".
+Det er en del mere sikkert, da en hacker vil have svært ved at regne ud hvad der står der,
+da det ikke er altid de ved hvilke hashing metode der er brugt.
+
+Men da denne kode kun er blevet hashed, så vil der altid være en chance for at en hacker kan regne denne kode ud.
+Det kan de fordi, hver gang jeg bruger sha256 til at hashe "EasyPass", vil den altid ende ud som ovenover.
+Derfor er der måder at decryptere denne hash. Der er nogle som har lavet noget som hedder RainbowTables,
+som er en masse data, der hjælper med at decryptere disse adgangskoder ved at genkende krypteringsmønsteret.
+
+Men hvis det ikke er nok at hash den følsomme data, så er der noget man kan gøre udover det.
+Vi har nemlig også et værktøj til rådighed, kaldet "Salting". Dette er bare at tilføje en ekstra kode bagpå den originale kode.
+Så hvis vi har en adgangskode som "EasyPass", så kan man salt den med et tilfældigt ord som "EasySalt",
+Så vil adgangskoden i sidste ende, se således ud "EasyPassEasySalt"
+"EasyPass"          =   "7ddf35efd4aa05281f1b68f93d5fcb724d6b286b9a7826dd8c59308526a6533c"
+"EasyPassEasySalt"  =   "79d406174aac69c0a26666eb60bf56f018c86ba444e00430bd85342288e71681"
+Som man kan se er disse til sha256 hashes ikke de samme. Selvom de begge har samme adgangskode, som er EasyPass.
+Men hvis man tilføjer en tilfældig streng bagpå vil den ikke hash dem på samme måde, og vil derfor ikke være den samme kode.

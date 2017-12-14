@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Exam 2017",
+  "description": "This extension will show tours with the help of a API I made",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}

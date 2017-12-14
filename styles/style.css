@@ -1,0 +1,90 @@
+#header {
+    background: lightgray;
+    height: 100px;
+}
+
+#header h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#nav {
+    background-color: lightgray;
+    text-align: center;
+}
+
+.mainBtns {
+    list-style: none;
+    display: inline-block;
+}
+
+.mainBtns .nav_button {
+    float: left;
+    margin: 0 20px;
+}
+
+.mainBtns .nav_button a {
+    color: black;
+    text-decoration: none;
+}
+
+.mainBtns .nav_button a:hover {
+    color: white;
+    background-color: black;
+}
+
+#toursTable {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.toursTH, .toursTD {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: lightgray;
+}
+
+.toursTH {
+    background-color: darkgray;
+}
+
+#adminLoginTable {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.adminLoginTH, .adminLoginTD {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    background-color: lightgray;
+}
+
+.adminLoginTH {
+    background-color: darkgray;
+}
+
+.inputField {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+}
+
+.loginBtn {
+    width: 80px;
+    height: 30px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: blue;
+}
+.loginBtn:hover {
+    cursor: pointer;
+    background-color: darkblue;
+}
+
+.tourGraphic {
+    width: 100px;
+}

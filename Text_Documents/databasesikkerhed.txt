@@ -1,0 +1,27 @@
+Man kan sikrer sin SQL database sikkerhed ved at bruge nogle forskellige værktøjer.
+Vi kan først og fremmest gøre så den connection man har til databasen, er med en bruger som ikke har administrator privilegier.
+Hvis man starter med at connecte med 'limited access' til databasen,
+vil man være sikker på at der ikke sker noget alvorligt hvis nogen skulle finde et hul.
+Altså med alvorligt, mener jeg at dataen ikke kan slettes eller redigeres.
+Men man vil stadig være i stand til at se dataen hvis der findes et hul i systemet.
+
+Det man starter med at gøre er, at tjekke alt input der skal sendes med i en SQL-Query,
+for om der er special characters eller lign.
+Jeg har lavet en metode jeg kalder når der er noget data der skal sendes med i en sql statement.
+Den metode har jeg kaldt checkInput, da det er hvad den skal.
+Den tager først og bruger trim() metoden, som fjerne whitespaces inden og efter inputtet.
+Så bruger den stripslashes() som fjerner nogle af de specielle tegn,
+efter det bruger den strip_tags() som fjerner resten af de specielle tegn,
+og til sidst bruger jeg htmlspecialchars() som ændrer disse specielle tegn,
+til html tegn som en url kan læse. det kan f.eks. være " Hello world " = %68% Hello world %68%.
+
+En anden måde at sikrer sin database imod SQL-Injection, vil være at kun tilgå sin database
+ved brug af prepared statements. Prepared statements betyder at at en SQL Statement
+er lavet som en skabelon og så er specifikke værdier ikke specificeret,
+så man kan inputte variabler.
+F.eks. kan PHP prepared statement se således ud:
+--- $stmt = $connect-prepare("INSERT INTO tours VALUES(?, ?, ?,)");
+--- $stmt->bind_param("sss", $tourId, $packageId, $description);
+Så sætter man disse parametre inden man eksekverer denne statement,
+som er vist herunder.
+--- $stmt->execute();

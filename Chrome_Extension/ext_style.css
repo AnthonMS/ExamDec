@@ -1,0 +1,32 @@
+#extensionTable {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#extensionTable th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: lightgray;
+}
+
+#extensionTable th {
+    background-color: darkgray;
+}
+
+#getToursBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    color: black;
+}
+
+#getToursBtn:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}
